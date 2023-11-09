@@ -1,0 +1,13 @@
+name: owasp
+on: push
+jobs: 
+  scan: 
+    runs-on: ubuntu-latest
+    name: scanning app
+    steps: 
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: ZAP Full Scan
+        uses: zaproxy/action-baseline@v0.9.0
+        with: 
+          target: https://doral.goldentrust.com/en/home/
